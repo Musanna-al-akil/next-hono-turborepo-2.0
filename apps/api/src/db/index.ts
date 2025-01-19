@@ -1,18 +1,9 @@
-import { config } from "dotenv";
 import { drizzle } from "drizzle-orm/vercel-postgres";
-import { usersTable } from "./schema";
-
-config({ path: ".env" });
+import { InsertUser, usersTable } from "./schema";
 
 const db = drizzle();
 
-interface User {
-    name: string;
-    email: string;
-    password: string;
-}
-
-export async function insertUser(user: User) {
+export async function insertUser(user: InsertUser) {
     return await db
         .insert(usersTable)
         .values(user)
