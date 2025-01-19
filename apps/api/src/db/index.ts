@@ -1,7 +1,8 @@
-import { drizzle } from "drizzle-orm/vercel-postgres";
+import "dotenv/config";
+import { drizzle } from "drizzle-orm/neon-http";
 import { InsertUser, usersTable } from "./schema";
 
-const db = drizzle();
+const db = drizzle(process.env.POSTGRES_URL!);
 
 export async function insertUser(user: InsertUser) {
     return await db
