@@ -4,9 +4,9 @@
     "tasks": {
         "build": {
             "dependsOn": ["^build"],
-            "inputs": ["$TURBO_DEFAULT$", ".env*", "apps/*/.env*"],
+            "inputs": ["$TURBO_DEFAULT$", ".env*", "apps/*/.env"],
             "outputs": [".next/**", "!.next/cache/**"],
-            "env": ["API"]
+            "env": ["API","POSTGRES_URL"]
         },
         "lint": {
             "dependsOn": ["^lint"]

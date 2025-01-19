@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { insertUser } from "./db";
 
 const app = new Hono().basePath("/api");
 
@@ -20,14 +21,17 @@ app.get("/ping", (c) => {
     return c.json({ message: "ping" });
 });
 
-app.post("/signup", (c) => {
-    return c.json({ message: "ping" });
+app.post("/signup", async (c) => {
+    const { name, email, password } = await c.req.json();
+
+    const user = await insertUser({ name, email, password });
+
+    return c.json({ user });
 });
 
 app.post("/login", (c) => {
     return c.json({ message: "ping" });
 });
-
 
 app.post("/logout", (c) => {
     return c.json({ message: "ping" });
