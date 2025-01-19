@@ -1,4 +1,3 @@
-import { handle } from "@hono/node-server/vercel";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 
@@ -14,7 +13,7 @@ app.use(
     })
 );
 app.get("/", (c) => {
-    return c.json({ message: "Hello Hono!" });
+    return c.json({ message: "Hello Hono" });
 });
 
-export default handle(app);
+export default app;

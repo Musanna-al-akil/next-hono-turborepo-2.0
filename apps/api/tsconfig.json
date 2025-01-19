@@ -1,10 +1,20 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strict": true,
-  },
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "baseUrl": "./",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "outDir": "./dist",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"],
+    "tsc-alias": {
+        "resolveFullPaths": true
+    }
 }
