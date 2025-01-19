@@ -12,7 +12,11 @@ export default function Home() {
     // }, []);
 
     const handleFetch = async () => {
-        const data = await fetch("/api");
+        const baseUrl =
+            process.env.NODE_ENV === "production"
+                ? "https://next-hono-turborepo-2-0-api.vercel.app"
+                : "";
+        const data = await fetch(baseUrl + "/api");
         const json = await data.json();
 
         console.log(json);
