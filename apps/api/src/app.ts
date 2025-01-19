@@ -16,4 +16,25 @@ app.get("/", (c) => {
     return c.json({ message: "Hello Hono" });
 });
 
+app.get("/ping", (c) => {
+    return c.json({ message: "ping" });
+});
+
+app.post("/signup", (c) => {
+    return c.json({ message: "ping" });
+});
+
+app.post("/login", (c) => {
+    return c.json({ message: "ping" });
+});
+
+
+app.post("/logout", (c) => {
+    return c.json({ message: "ping" });
+});
+
+app.get("/auth/dashboard", (c) => {
+    return c.json({ message: "ping" });
+});
+
 export default app;
